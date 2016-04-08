@@ -1,0 +1,14 @@
+{
+    "name": "atanenl/portabase",
+    "description": "PortaBase API Client",
+    "require": {
+        "anlutro/curl": "~1.4"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Sernin van de Krol",
+            "email": "sernin@atane.nl"
+        }
+    ]
+}
