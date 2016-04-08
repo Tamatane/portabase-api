@@ -1,8 +1,14 @@
 {
     "name": "atanenl/portabase",
     "description": "PortaBase API Client",
+    "keywords": ["PortaBase"],
     "require": {
+        "php": ">=5.5.9",
         "anlutro/curl": "~1.4"
+    },
+    "homepage": "http://www.atane.nl",
+    "support": {
+        "source": "https://github.com/AtaneNL/portabase-api"
     },
     "license": "GPL-3.0",
     "authors": [
