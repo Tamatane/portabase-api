@@ -39,4 +39,18 @@ class Client {
         }
         return json_decode($response->body);
     }
+
+    /**
+     * Retrieve all managers
+     *
+     * @throws anlutro\cURL\cURLException Thrown by the underlying cURL library
+     * @throws AtaneNL\PortaBase\Exceptions\RemoteException Thrown if the response was not a 200 OK
+     */
+    public function getManagers() {
+        $response = $this->curl->jsonGet("{$this->portabase_url}/api/1.0/managers");
+        if($response->statusCode != 200) {
+            throw new Exceptions\RemoteException($response->body, $response->statusCode);
+        }
+        return json_decode($response->body);
+    }
 }
