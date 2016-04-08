@@ -10,5 +10,8 @@
             "name": "Sernin van de Krol",
             "email": "sernin@atane.nl"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": { "AtaneNL\\PortaBase": "src/" }
+    }
 }
