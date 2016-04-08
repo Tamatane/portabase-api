@@ -34,10 +34,7 @@ class Client {
      */
     public function getHosts() {
         $response = $this->curl->jsonGet("{$this->portabase_url}/api/1.0/gastouders");
-        if($response->statusCode != 200) {
-            throw new Exceptions\RemoteException($response->body, $response->statusCode);
-        }
-        return json_decode($response->body);
+        return $this->parseResponse($response);
     }
 
     /**
@@ -48,9 +45,18 @@ class Client {
      */
     public function getManagers() {
         $response = $this->curl->jsonGet("{$this->portabase_url}/api/1.0/managers");
-        if($response->statusCode != 200) {
-            throw new Exceptions\RemoteException($response->body, $response->statusCode);
+        return $this->parseResponse($response);
+    }
+
+    private function parseResponse($response) {
+        if($response->statusCode == 200 || $response->statusCode == 201) {
+            return json_decode($response->body);
+        } else if($response->statusCode == 400) {
+            throw new Exceptions\InvalidRequestException($reponse->body, $response->statusCode);
+        } else if($response->statusCode == 403) {
+            throw new Exceptions\UnauthorizedException($reponse->body, $response->statusCode);
+        } else {
+            throw new Exceptions\RemoteException($reponse->body, $response->statusCode);
         }
-        return json_decode($response->body);
     }
 }
