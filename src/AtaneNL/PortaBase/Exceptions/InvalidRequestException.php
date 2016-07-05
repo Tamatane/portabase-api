@@ -1,6 +1,6 @@
 <?php
 
-namespace AtaneNL\PortaBase\Exceptions
+namespace AtaneNL\PortaBase\Exceptions;
 
 class InvalidRequestException extends RemoteException {
 }
