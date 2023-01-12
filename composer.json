@@ -6,8 +6,8 @@
         "php": "^7.4",
         "ext-curl": "*",
         "ext-json": "*",
-        "anlutro/curl": "~1.4",
-        "guzzlehttp/guzzle": "^7.5"
+        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/psr7": "^2.4"
     },
     "homepage": "http://www.atane.nl",
     "support": {
