@@ -4,12 +4,17 @@
     "keywords": ["PortaBase"],
     "require": {
         "php": "^7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
         "anlutro/curl": "~1.4",
         "guzzlehttp/guzzle": "^7.5"
     },
     "homepage": "http://www.atane.nl",
     "support": {
         "source": "https://github.com/AtaneNL/portabase-api"
+    },
+    "config": {
+        "sort-packages": true
     },
     "license": "GPL-3.0",
     "authors": [
@@ -19,6 +24,6 @@
         }
     ],
     "autoload": {
-        "psr-0": { "AtaneNL\\PortaBase": "src/" }
+        "psr-4": { "AtaneNL\\PortaBase\\": "src/" }
     }
 }
