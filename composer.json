@@ -3,8 +3,9 @@
     "description": "PortaBase API Client",
     "keywords": ["PortaBase"],
     "require": {
-        "php": ">=5.5.9",
-        "anlutro/curl": "~1.4"
+        "php": "^7.4",
+        "anlutro/curl": "~1.4",
+        "guzzlehttp/guzzle": "^7.5"
     },
     "homepage": "http://www.atane.nl",
     "support": {
