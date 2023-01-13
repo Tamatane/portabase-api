@@ -30,17 +30,21 @@ class Client
      * @param string $portabase_url PortaBase protocol and domain, e.g. https://awesome.portabase.nl
      * @param string $portabase_key PortaBase API key
      */
-    public function __construct(string $portabase_url, string $portabase_key)
+    public function __construct(string $portabase_url, string $portabase_key, array $guzzleOptions = [])
     {
         $this->portabase_url = $portabase_url;
         $this->portabase_key = $portabase_key;
-        $this->client = new \GuzzleHttp\Client([
-            'http_errors' => false,
-            'headers' => [
-                'accept' => 'application/json',
-                'api-key' => $portabase_key,
-            ]
-        ]);
+        $this->client = new \GuzzleHttp\Client(
+            array_merge_recursive(
+                [
+                    'http_errors' => false,
+                    'headers' => [
+                        'accept' => 'application/json',
+                        'api-key' => $portabase_key,
+                    ]
+                ]
+                , $guzzleOptions)
+        );
     }
 
     /**
