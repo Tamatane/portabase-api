@@ -3,7 +3,7 @@
     "description": "PortaBase API Client",
     "keywords": ["PortaBase"],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.5",
