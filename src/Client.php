@@ -8,8 +8,8 @@ use AtaneNL\PortaBase\Exceptions\RemoteException;
 use AtaneNL\PortaBase\Exceptions\UnauthorizedException;
 use CURLFile;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Utils;
+use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
@@ -22,7 +22,7 @@ class Client
 
     private \GuzzleHttp\Client $client;
     private string $portabase_url;
-    private string $portabase_key;
+    // private string $portabase_key;
 
     /**
      * Initialize a PortaBase Client
@@ -33,7 +33,7 @@ class Client
     public function __construct(string $portabase_url, string $portabase_key, array $guzzleOptions = [])
     {
         $this->portabase_url = $portabase_url;
-        $this->portabase_key = $portabase_key;
+        // $this->portabase_key = $portabase_key;
         $this->client = new \GuzzleHttp\Client(
             array_merge_recursive(
                 [
@@ -162,7 +162,7 @@ class Client
      * @throws UnauthorizedException Thrown if we are not allowed to call an api endpoint
      * @throws RemoteException Thrown for other non-200 status codes
      */
-    private function parseResponse(Response $response): array
+    private function parseResponse(ResponseInterface $response): array
     {
         $statusCode = $response->getStatusCode();
         $body = $response->getBody();
