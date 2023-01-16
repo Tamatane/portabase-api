@@ -3,12 +3,18 @@
     "description": "PortaBase API Client",
     "keywords": ["PortaBase"],
     "require": {
-        "php": ">=5.5.9",
-        "anlutro/curl": "~1.4"
+        "php": "^7.4|^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/psr7": "^2.4"
     },
     "homepage": "http://www.atane.nl",
     "support": {
         "source": "https://github.com/AtaneNL/portabase-api"
+    },
+    "config": {
+        "sort-packages": true
     },
     "license": "GPL-3.0",
     "authors": [
@@ -17,7 +23,13 @@
             "email": "sernin@atane.nl"
         }
     ],
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse"
+    },
     "autoload": {
-        "psr-0": { "AtaneNL\\PortaBase": "src/" }
+        "psr-4": { "AtaneNL\\PortaBase\\": "src/" }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.9"
     }
 }
